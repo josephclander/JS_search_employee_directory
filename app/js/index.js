@@ -23,9 +23,14 @@ fetch(
 )
   .then((response) => response.json())
   .then(({ results }) => {
+    // populate employee list attach to DOM
     const mergedList = mergeCardList(results);
     const employeesContainer = document.getElementById('employees');
     employeesContainer.innerHTML = mergedList;
+
+    // click handlers
+    const domEmployees = document.getElementsByClassName('employee');
+    clickHandler(domEmployees);
   });
 
 // create a card
@@ -48,4 +53,13 @@ const mergeCardList = (list) => {
   });
   const mergedList = listArray.join('');
   return mergedList;
+};
+
+// add eventlistener to cards
+const clickHandler = (employeesList) => {
+  for (let i = 0; i < employeesList.length; i++) {
+    employeesList[i].addEventListener('click', (event) => {
+      console.log(event.target);
+    });
+  }
 };
