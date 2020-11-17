@@ -35,7 +35,7 @@ const createEmployeeCard = (employee) => {
     <div class="employee__info">
         <div class="employee__name">${employee.name.first} ${employee.name.last}</div>
         <div class="employee__email"><a href="${employee.email}">${employee.email}</a></div>
-        <div class="employee__state">${employee.location.state}</div>
+        <div class="employee__state">${employee.location.city}</div>
     </div>
 </div>`;
   return htmlOutput;
