@@ -35,14 +35,14 @@ fetch(
 
 // create a card
 const createEmployeeCard = (employee) => {
-  let htmlOutput = `<div class="employee">
+  let htmlOutput = `<li class="employee">
     <div class="employee__photo"><img src="${employee.picture.large}" alt="Profile photo of ${employee.name.first} ${employee.name.last}"></div>
     <div class="employee__info">
         <div class="employee__name">${employee.name.first} ${employee.name.last}</div>
         <div class="employee__email"><a href="${employee.email}">${employee.email}</a></div>
         <div class="employee__city">${employee.location.city}</div>
     </div>
-</div>`;
+</li>`;
   return htmlOutput;
 };
 
