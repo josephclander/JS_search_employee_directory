@@ -59,6 +59,7 @@ const mergeCardList = (list) => {
 const clickHandler = (employeesList) => {
   for (let i = 0; i < employeesList.length; i++) {
     employeesList[i].addEventListener('click', (event) => {
+      if (employeesList[i] !== event.target) return;
       console.log(event.target);
     });
   }
