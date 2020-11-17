@@ -23,17 +23,20 @@ fetch(
 )
   .then((response) => response.json())
   .then(({ results }) => {
-    console.log(results);
+    const card = createEmployeeCard(results[0]);
+    const employeesContainer = document.getElementById('employees');
+    employeesContainer.innerHTML = card;
   });
 
-//   // create a card
-//   const createEmployeeCard = (employee) => {
-//     let htmlOutput = `<div class="employee">
-//     <div class="employee__photo"></div>
-//     <div class="employee__info">
-//         <div class="employee__name"></div>
-//         <div class="employee__email"></div>
-//         <div class="employee__state"></div>
-//     </div>
-// </div>`
-//   }
+// create a card
+const createEmployeeCard = (employee) => {
+  let htmlOutput = ` <div class="employee">
+    <div class="employee__photo"><img src="${employee.picture.large}" alt="Profile photo of ${employee.name.first} ${employee.name.last}"></div>
+    <div class="employee__info">
+        <div class="employee__name">${employee.name.first} ${employee.name.last}</div>
+        <div class="employee__email"><a href="${employee.email}">${employee.email}</a></div>
+        <div class="employee__state">${employee.location.state}</div>
+    </div>
+</div>`;
+  return htmlOutput;
+};
