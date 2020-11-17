@@ -1,1 +1,16 @@
+.container {
+  margin: 30px auto;
+  width: 80vw;
+  min-height: 90vh;
+}
 
+.headline {
+  margin-bottom: 2rem;
+  color: $grey-dark;
+}
+
+.employees {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-gap: 30px;
+}

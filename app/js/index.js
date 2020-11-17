@@ -23,9 +23,9 @@ fetch(
 )
   .then((response) => response.json())
   .then(({ results }) => {
-    const card = createEmployeeCard(results[0]);
+    const mergedList = mergeCardList(results);
     const employeesContainer = document.getElementById('employees');
-    employeesContainer.innerHTML = card;
+    employeesContainer.innerHTML = mergedList;
   });
 
 // create a card
@@ -39,4 +39,13 @@ const createEmployeeCard = (employee) => {
     </div>
 </div>`;
   return htmlOutput;
+};
+
+// join cards into html list
+const mergeCardList = (list) => {
+  const listArray = list.map((employee) => {
+    return createEmployeeCard(employee);
+  });
+  const mergedList = listArray.join('');
+  return mergedList;
 };
