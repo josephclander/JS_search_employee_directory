@@ -30,7 +30,11 @@ fetch(
 
     // click handlers
     const domEmployees = document.getElementsByClassName('employee');
+    const modal = document.querySelector('.modal');
+    const closeButton = document.querySelector('.modal__close');
     clickHandler(domEmployees);
+    closeModalHandler(closeButton);
+    closeModalHandler(modal);
   });
 
 // create a card
@@ -60,7 +64,27 @@ const clickHandler = (employeesList) => {
   for (let i = 0; i < employeesList.length; i++) {
     employeesList[i].addEventListener('click', (event) => {
       if (employeesList[i] !== event.target) return;
-      console.log(event.target.id);
+      showModal(event.target.id);
     });
   }
+};
+
+// actions on click
+// show modal box
+const showModal = (index) => {
+  const modal = document.querySelector('.modal');
+  modal.style.display = 'grid';
+  console.log(index);
+};
+
+// create modal employee
+
+// close modal
+const closeModalHandler = (item) => {
+  item.addEventListener('click', (event) => {
+    const modal = document.querySelector('.modal');
+    const closeButton = document.querySelector('.modal__close');
+    if (event.target == modal || event.target == closeButton)
+      modal.style.display = 'none';
+  });
 };
