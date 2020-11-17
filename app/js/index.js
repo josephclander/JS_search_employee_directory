@@ -25,3 +25,15 @@ fetch(
   .then(({ results }) => {
     console.log(results);
   });
+
+//   // create a card
+//   const createEmployeeCard = (employee) => {
+//     let htmlOutput = `<div class="employee">
+//     <div class="employee__photo"></div>
+//     <div class="employee__info">
+//         <div class="employee__name"></div>
+//         <div class="employee__email"></div>
+//         <div class="employee__state"></div>
+//     </div>
+// </div>`
+//   }

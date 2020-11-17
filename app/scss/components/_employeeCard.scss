@@ -1,0 +1,40 @@
+.employee {
+  display: flex;
+  align-items: center;
+
+  border: 1px solid $grey;
+  border-radius: 5px;
+  width: 400px; // to edit
+  padding: 1.5rem;
+
+  line-height: 1.5;
+
+  &__photo {
+    margin-right: 1.2rem;
+    & img {
+      border-radius: 50%;
+      width: 120px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+
+    color: $grey;
+  }
+
+  &__name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: $off-black;
+    margin-bottom: 0.2rem;
+  }
+
+  &__email a:link,
+  &__email a:visited {
+    text-decoration: none;
+    color: $grey;
+    cursor: pointer;
+  }
+}
