@@ -6,8 +6,9 @@
   border-radius: 5px;
   //   width: 400px; // to edit
   padding: 1.5rem;
-
   line-height: 1.5;
+
+  transition: background-color 0.3s;
 
   &__photo {
     margin-right: 1.2rem;
@@ -22,6 +23,7 @@
     flex-direction: column;
 
     color: $grey;
+    transition: color 0.3s;
   }
 
   &__name {
@@ -36,5 +38,10 @@
     text-decoration: none;
     color: $grey;
     cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  &:hover {
+    background-color: rgb(251, 255, 193);
   }
 }
