@@ -34,8 +34,8 @@ fetch(
   });
 
 // create a card
-const createEmployeeCard = (employee) => {
-  let htmlOutput = `<li class="employee">
+const createEmployeeCard = (employee, index) => {
+  let htmlOutput = `<li class="employee" id="${index}">
     <div class="employee__photo"><img src="${employee.picture.large}" alt="Profile photo of ${employee.name.first} ${employee.name.last}"></div>
     <div class="employee__info">
         <div class="employee__name">${employee.name.first} ${employee.name.last}</div>
@@ -48,8 +48,8 @@ const createEmployeeCard = (employee) => {
 
 // join cards into html list
 const mergeCardList = (list) => {
-  const listArray = list.map((employee) => {
-    return createEmployeeCard(employee);
+  const listArray = list.map((employee, index) => {
+    return createEmployeeCard(employee, index);
   });
   const mergedList = listArray.join('');
   return mergedList;
@@ -60,7 +60,7 @@ const clickHandler = (employeesList) => {
   for (let i = 0; i < employeesList.length; i++) {
     employeesList[i].addEventListener('click', (event) => {
       if (employeesList[i] !== event.target) return;
-      console.log(event.target);
+      console.log(event.target.id);
     });
   }
 };
