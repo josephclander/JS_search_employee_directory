@@ -31,9 +31,7 @@ fetch(
     // click handlers
     const domEmployees = document.getElementsByClassName('employee');
     const modal = document.querySelector('.modal');
-    const closeButton = document.querySelector('.modal__close');
     clickHandler(domEmployees);
-    closeModalHandler(closeButton);
     closeModalHandler(modal);
   });
 
@@ -70,15 +68,6 @@ const clickHandler = (employeesList) => {
 };
 
 // actions on click
-// show modal box
-const showModal = (index) => {
-  const modal = document.querySelector('.modal');
-  modal.style.display = 'grid';
-  console.log(index);
-};
-
-// create modal employee
-
 // close modal
 const closeModalHandler = (item) => {
   item.addEventListener('click', (event) => {
@@ -88,3 +77,14 @@ const closeModalHandler = (item) => {
       modal.style.display = 'none';
   });
 };
+
+// show modal box
+const showModal = () => {
+  const modal = document.querySelector('.modal');
+  modal.style.display = 'grid';
+  // attach closeHandler when modal is 'created'
+  const closeButton = document.querySelector('.modal__close');
+  closeModalHandler(closeButton);
+};
+
+// create modal employee
