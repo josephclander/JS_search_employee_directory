@@ -34,6 +34,10 @@ fetch(
     const modal = document.querySelector('.modal');
     clickHandler(domEmployees, employeeObjectList);
     closeModalHandler(modal);
+
+    // search functionality
+    const searchbar = document.querySelector('#searchInput');
+    searchbar.addEventListener('keyup', searchHandler);
   });
 
 // create a card
