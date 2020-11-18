@@ -109,13 +109,10 @@ const showModal = (index, employeeObjectList) => {
   const modal = document.querySelector('.modal');
   const modalCard = document.querySelector('#modalCard');
   // add modal employee card
-  const cardContent = createModalCard(index, employeeObjectList);
-  modalCard.innerHTML = cardContent;
-  // attach closeHandler when modal is 'created'
-  const closeButton = document.querySelector('.modal__close');
-  closeModalHandler(closeButton);
   // show the modal at this point
   modal.style.display = 'grid';
+  const cardContent = createModalCard(index, employeeObjectList);
+  modalCard.innerHTML = cardContent;
 };
 
 // close modal
@@ -123,7 +120,21 @@ const closeModalHandler = (item) => {
   item.addEventListener('click', (event) => {
     const modal = document.querySelector('.modal');
     const closeButton = document.querySelector('.modal__close');
-    if (event.target == modal || event.target == closeButton)
+    const modalCard = document.querySelector('#modalCard');
+    if (event.target == modal || event.target == closeButton) {
       modal.style.display = 'none';
+      modalCard.innerHTML = defaultModalContent;
+    }
   });
 };
+
+// default loading modal
+const defaultModalContent = `<div class="modal__close">&times;</div>
+<div class="mock mock__photo"></div>
+<div class="mock mock__name"></div>
+<div class="mock mock__email"></div>
+<div class="mock mock__city"></div>
+<hr class="modal__line">
+<div class="mock mock__cell"></div>
+<div class="mock mock__location"></div>
+<div class="mock mock__bday"></div>`;

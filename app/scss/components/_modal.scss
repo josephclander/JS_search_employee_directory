@@ -13,6 +13,10 @@
   //   display: grid;
   place-content: center;
 
+  & > * {
+    animation: fade 1.5s;
+  }
+
   &__close {
     font-size: 1.3rem;
     align-self: flex-end;
@@ -64,5 +68,15 @@
     color: $grey;
     cursor: pointer;
     transition: color 0.3s;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }

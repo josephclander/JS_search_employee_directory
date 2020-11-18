@@ -1,0 +1,44 @@
+.mock {
+  background-color: $grey-light;
+  margin-bottom: 10px;
+
+  &__photo {
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    margin-bottom: 20px;
+  }
+
+  &__name,
+  &__email,
+  &__city,
+  &__cell,
+  &__location,
+  &__bday {
+    height: 20px;
+  }
+
+  &__name {
+    width: 200px;
+  }
+
+  &__email {
+    width: 190px;
+  }
+
+  &__city {
+    width: 100px;
+  }
+
+  &__cell {
+    width: 150px;
+  }
+
+  &__location {
+    width: 350px;
+  }
+
+  &__bday {
+    width: 180px;
+  }
+}
