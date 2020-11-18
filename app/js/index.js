@@ -68,6 +68,34 @@ const clickHandler = (employeesList) => {
 };
 
 // actions on click
+// create modal employee
+const createModalCard = (employeeList, index) => {
+  let htmlOutput = `<div class="modal__close">&times;</div>
+                <div class="modal__photo"><img src="https://randomuser.me/api/portraits/men/35.jpg" alt="Profile photo of employee"></div>
+                <div class="modal__name">John Smith</div>
+                <div class="modal__email"><a href="employee@example.com">employee@example.com</a></div>
+                <div class="modal__city">Baltimore</div>
+                <hr class="modal__line">
+                <div class="modal__cell">(593) 364-3249</div>
+                <div class="modal__location">851 Scoville Plymouth, WV 84814</div>
+                <div class="modal__bday">Birthday: 01/04/85</div>`;
+  return htmlOutput;
+};
+
+// show modal box
+const showModal = (employeeList, index) => {
+  const modal = document.querySelector('.modal');
+  const modalCard = document.querySelector('#modalCard');
+  // add modal employee card
+  const cardContent = createModalCard(employeeList, index);
+  modalCard.innerHTML = cardContent;
+  // attach closeHandler when modal is 'created'
+  const closeButton = document.querySelector('.modal__close');
+  closeModalHandler(closeButton);
+  // show the modal at this point
+  modal.style.display = 'grid';
+};
+
 // close modal
 const closeModalHandler = (item) => {
   item.addEventListener('click', (event) => {
@@ -77,14 +105,3 @@ const closeModalHandler = (item) => {
       modal.style.display = 'none';
   });
 };
-
-// show modal box
-const showModal = () => {
-  const modal = document.querySelector('.modal');
-  modal.style.display = 'grid';
-  // attach closeHandler when modal is 'created'
-  const closeButton = document.querySelector('.modal__close');
-  closeModalHandler(closeButton);
-};
-
-// create modal employee
