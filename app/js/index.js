@@ -23,15 +23,17 @@ fetch(
 )
   .then((response) => response.json())
   .then(({ results }) => {
+    const employeeObjectList = results;
+    console.log(employeeObjectList);
     // populate employee list attach to DOM
-    const mergedList = mergeCardList(results);
+    const employeeHTMLList = mergeCardList(employeeObjectList);
     const employeesContainer = document.getElementById('employees');
-    employeesContainer.innerHTML = mergedList;
+    employeesContainer.innerHTML = employeeHTMLList;
 
     // click handlers
     const domEmployees = document.getElementsByClassName('employee');
     const modal = document.querySelector('.modal');
-    clickHandler(domEmployees);
+    clickHandler(domEmployees, employeeObjectList);
     closeModalHandler(modal);
   });
 
@@ -58,36 +60,39 @@ const mergeCardList = (list) => {
 };
 
 // add eventlistener to cards
-const clickHandler = (employeesList) => {
-  for (let i = 0; i < employeesList.length; i++) {
-    employeesList[i].addEventListener('click', (event) => {
-      if (employeesList[i] !== event.target) return;
-      showModal(event.target.id);
+const clickHandler = (employeeDOMList, employeeObjectList) => {
+  for (let i = 0; i < employeeDOMList.length; i++) {
+    employeeDOMList[i].addEventListener('click', (event) => {
+      if (employeeDOMList[i] !== event.target) return;
+      showModal(event.target.id, employeeObjectList);
     });
   }
 };
 
 // actions on click
 // create modal employee
-const createModalCard = (employeeList, index) => {
+const createModalCard = (index, employeeObjectList) => {
+  const { street, city, state, postcode } = employeeObjectList[index].location;
+  const address = `${street.number} ${street.name}, ${city}, ${state}, ${postcode}`;
+
   let htmlOutput = `<div class="modal__close">&times;</div>
-                <div class="modal__photo"><img src="https://randomuser.me/api/portraits/men/35.jpg" alt="Profile photo of employee"></div>
-                <div class="modal__name">John Smith</div>
-                <div class="modal__email"><a href="employee@example.com">employee@example.com</a></div>
-                <div class="modal__city">Baltimore</div>
+                <div class="modal__photo"><img src="${employeeObjectList[index].picture.large}" alt="Profile photo of employee"></div>
+                <div class="modal__name">${employeeObjectList[index].name.first} ${employeeObjectList[index].name.last}</div>
+                <div class="modal__email"><a href="mailto:${employeeObjectList[index].email}">${employeeObjectList[index].email}</a></div>
+                <div class="modal__city">${employeeObjectList[index].location.city}</div>
                 <hr class="modal__line">
-                <div class="modal__cell">(593) 364-3249</div>
-                <div class="modal__location">851 Scoville Plymouth, WV 84814</div>
-                <div class="modal__bday">Birthday: 01/04/85</div>`;
+                <div class="modal__cell">${employeeObjectList[index].cell}</div>
+                <div class="modal__location">${address}</div>
+                <div class="modal__bday">Birthday: ${employeeObjectList[index].dob}</div>`;
   return htmlOutput;
 };
 
 // show modal box
-const showModal = (employeeList, index) => {
+const showModal = (index, employeeObjectList) => {
   const modal = document.querySelector('.modal');
   const modalCard = document.querySelector('#modalCard');
   // add modal employee card
-  const cardContent = createModalCard(employeeList, index);
+  const cardContent = createModalCard(index, employeeObjectList);
   modalCard.innerHTML = cardContent;
   // attach closeHandler when modal is 'created'
   const closeButton = document.querySelector('.modal__close');
