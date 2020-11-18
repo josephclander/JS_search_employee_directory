@@ -41,6 +41,8 @@
     color: $grey;
 
     z-index: 20;
+
+    position: relative;
   }
 
   &__photo {
@@ -79,4 +81,24 @@
   to {
     opacity: 1;
   }
+}
+
+.left-arrow,
+.right-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 100px;
+  cursor: pointer;
+  line-height: 0.4;
+  padding: 15px;
+  color: inherit;
+}
+
+.left-arrow {
+  left: -70px;
+}
+
+.right-arrow {
+  right: -70px;
 }

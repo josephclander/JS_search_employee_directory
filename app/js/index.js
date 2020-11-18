@@ -80,7 +80,9 @@ const createModalCard = (index, employeeObjectList) => {
   const dateString = employeeObjectList[index].dob.date;
   const birthday = parseDate(dateString);
 
-  let htmlOutput = `<div class="modal__close">&times;</div>
+  let htmlOutput = `<div class="left-arrow">&lsaquo;</div>
+                <div class="right-arrow">&rsaquo;</div>
+                <div class="modal__close">&times;</div>
                 <div class="modal__photo"><img src="${employeeObjectList[index].picture.large}" alt="Profile photo of employee"></div>
                 <div class="modal__name">${employeeObjectList[index].name.first} ${employeeObjectList[index].name.last}</div>
                 <div class="modal__email"><a href="mailto:${employeeObjectList[index].email}">${employeeObjectList[index].email}</a></div>
@@ -129,7 +131,9 @@ const closeModalHandler = (item) => {
 };
 
 // default loading modal
-const defaultModalContent = `<div class="modal__close">&times;</div>
+const defaultModalContent = `<div class="left-arrow">&lsaquo;</div>
+<div class="right-arrow">&rsaquo;</div>
+<div class="modal__close">&times;</div>
 <div class="mock mock__photo"></div>
 <div class="mock mock__name"></div>
 <div class="mock mock__email"></div>
