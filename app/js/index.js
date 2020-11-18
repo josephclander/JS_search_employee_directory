@@ -24,7 +24,6 @@ fetch(
   .then((response) => response.json())
   .then(({ results }) => {
     const employeeObjectList = results;
-    console.log(employeeObjectList);
     // populate employee list attach to DOM
     const employeeHTMLList = mergeCardList(employeeObjectList);
     const employeesContainer = document.getElementById('employees');
@@ -74,6 +73,8 @@ const clickHandler = (employeeDOMList, employeeObjectList) => {
 const createModalCard = (index, employeeObjectList) => {
   const { street, city, state, postcode } = employeeObjectList[index].location;
   const address = `${street.number} ${street.name}, ${city}, ${state}, ${postcode}`;
+  const dateString = employeeObjectList[index].dob.date;
+  const birthday = parseDate(dateString);
 
   let htmlOutput = `<div class="modal__close">&times;</div>
                 <div class="modal__photo"><img src="${employeeObjectList[index].picture.large}" alt="Profile photo of employee"></div>
@@ -83,8 +84,20 @@ const createModalCard = (index, employeeObjectList) => {
                 <hr class="modal__line">
                 <div class="modal__cell">${employeeObjectList[index].cell}</div>
                 <div class="modal__location">${address}</div>
-                <div class="modal__bday">Birthday: ${employeeObjectList[index].dob}</div>`;
+                <div class="modal__bday">Birthday: ${birthday}</div>`;
   return htmlOutput;
+};
+
+// date parser
+const parseDate = (date) => {
+  // need day / month / year
+  // example input = 1957-11-16T01:45:46.027Z
+  // so arrives as full year-month-day
+  const year = date.substr(2, 2);
+  const month = date.substr(5, 2);
+  const day = date.substr(8, 2);
+  const parsedDate = `${day}/${month}/${year}`;
+  return parsedDate;
 };
 
 // show modal box
