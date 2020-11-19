@@ -4,8 +4,9 @@ const loader = (index, employeeObjectList) => {
   const modal = document.querySelector('.modal');
 
   const leftMove = () => {
-    let modalDisplayed = modal.style.display === 'grid';
-    if (position !== 0 && modalDisplayed) {
+    const modalDisplayed = modal.style.display === 'grid';
+    const isFirstElement = position === 0;
+    if (!isFirstElement && modalDisplayed) {
       position--;
       let newCardPosition = arrayOfCurrentIds[position];
       const cardContent = createModalCard(newCardPosition, employeeObjectList);
@@ -15,8 +16,9 @@ const loader = (index, employeeObjectList) => {
   };
 
   const rightMove = () => {
-    let modalDisplayed = modal.style.display === 'grid';
-    if (position !== arrayOfCurrentIds.length - 1 && modalDisplayed) {
+    const modalDisplayed = modal.style.display === 'grid';
+    const isLastElement = position === arrayOfCurrentIds.length - 1;
+    if (!isLastElement && modalDisplayed) {
       position++;
       let newCardPosition = arrayOfCurrentIds[position];
       const cardContent = createModalCard(newCardPosition, employeeObjectList);
