@@ -32,3 +32,21 @@ Awesome Startup is a distributed company with employees working all over the wor
 1 - Add a way to filter the directory by name or username. To do this, you’ll need to request a random user nationality that will only return data in the English alphabet. Note: you don't have to rely on the API to return search results. You'll need to write functionality that filters results once they already on the page.
 
 2 - Add a way to move back and forth between employee detail windows when the modal window is open.
+
+## Accessing this app
+
+To view the app you need to run `Gulp` to produce the distribution files. Download this repository, make sure you have `gulp` installed globally and install the node modules with `npm install`. Then run `gulp` in the command line.
+
+## Notes from the build
+
+This app was tested on Chrome 86, Safari 14.0.1 and Firefox 84. All requirements, including extra credit, have been implemented.
+
+The site was run on a local server in a Chrome browser during development. Occasionally the fetch request (XMLHttpRequest) would throw up a cross site browser issue. Reloading the page seems to move past this but I am unsure how to prevent it from happening.
+
+An experiment was run to prevent the 'flashing' effect when loading the modal. A default initial background is added but due to quick loading is unlikely to be seen. If loading is slow due to the server we're collecting the data from, it at least keeps some closer visual similarity but still 'flashes'. A fade in animation was added.
+
+Rather than keep all the data stored on multiple cards hidden from the window, the decision was made to 'pretend' to load data as it was requested. Although a database is not receiving data requests, the aim was to model a more secure environment.
+
+The navigation arrows are complimented by the use of the keyboards arrow keys. If the search facility has been used, the user will only access the employees that remain in the window.
+
+Eventlisteners for both arrow keys and keypresses were limited to only work when the modal is present. There is a concern that there are multiple event listeners being created as the showModal function is called but it can't be verified.
