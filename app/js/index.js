@@ -38,6 +38,13 @@ fetch(
     // search functionality
     const searchbar = document.querySelector('#searchInput');
     searchbar.addEventListener('keyup', searchHandler);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+    const el = document.querySelector('#employees');
+    const errorText =
+      ':: Failed to connect to server. Try refreshing the page.';
+    el.textContent = errorText;
   });
 
 // create a card
