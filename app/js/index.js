@@ -76,14 +76,14 @@ const clickHandler = (employeeDOMList, employeeObjectList) => {
 // create modal employee
 const createModalCard = (index, employeeObjectList) => {
   const { street, city, state, postcode } = employeeObjectList[index].location;
-  const address = `${street.number} ${street.name}, ${city}, ${state}, ${postcode}`;
+  const address = `${street.number} ${street.name}, ${state}, ${postcode}`;
   const dateString = employeeObjectList[index].dob.date;
   const birthday = parseDate(dateString);
 
   let htmlOutput = `<div class="modal__photo"><img src="${employeeObjectList[index].picture.large}" alt="Profile photo of employee"></div>
                 <div class="modal__name">${employeeObjectList[index].name.first} ${employeeObjectList[index].name.last}</div>
                 <div class="modal__email"><a href="mailto:${employeeObjectList[index].email}">${employeeObjectList[index].email}</a></div>
-                <div class="modal__city">${employeeObjectList[index].location.city}</div>
+                <div class="modal__city">${city}</div>
                 <hr class="modal__line">
                 <div class="modal__cell">${employeeObjectList[index].cell}</div>
                 <div class="modal__location">${address}</div>
