@@ -31,9 +31,9 @@ fetch(
 
     // click handlers
     const domEmployees = document.getElementsByClassName('employee');
-    const modal = document.querySelector('.modal');
     clickHandler(domEmployees, employeeObjectList);
-    closeModalHandler(modal);
+    // const modal = document.querySelector('.modal');
+    // closeModalHandler(modal);
 
     // search functionality
     const searchbar = document.querySelector('#searchInput');
@@ -80,10 +80,7 @@ const createModalCard = (index, employeeObjectList) => {
   const dateString = employeeObjectList[index].dob.date;
   const birthday = parseDate(dateString);
 
-  let htmlOutput = `<div class="left-arrow">&lsaquo;</div>
-                <div class="right-arrow">&rsaquo;</div>
-                <div class="modal__close">&times;</div>
-                <div class="modal__photo"><img src="${employeeObjectList[index].picture.large}" alt="Profile photo of employee"></div>
+  let htmlOutput = `<div class="modal__photo"><img src="${employeeObjectList[index].picture.large}" alt="Profile photo of employee"></div>
                 <div class="modal__name">${employeeObjectList[index].name.first} ${employeeObjectList[index].name.last}</div>
                 <div class="modal__email"><a href="mailto:${employeeObjectList[index].email}">${employeeObjectList[index].email}</a></div>
                 <div class="modal__city">${employeeObjectList[index].location.city}</div>
@@ -109,12 +106,14 @@ const parseDate = (date) => {
 // show modal box
 const showModal = (index, employeeObjectList) => {
   const modal = document.querySelector('.modal');
-  const modalCard = document.querySelector('#modalCard');
+  const modalContent = document.querySelector('#modalContent');
   // add modal employee card
   // show the modal at this point
   modal.style.display = 'grid';
   const cardContent = createModalCard(index, employeeObjectList);
-  modalCard.innerHTML = cardContent;
+  modalContent.innerHTML = cardContent;
+  closeModalHandler(modal);
+  loader(index, employeeObjectList);
 };
 
 // close modal
@@ -122,23 +121,20 @@ const closeModalHandler = (item) => {
   item.addEventListener('click', (event) => {
     const modal = document.querySelector('.modal');
     const closeButton = document.querySelector('.modal__close');
-    const modalCard = document.querySelector('#modalCard');
+    const modalContent = document.querySelector('#modalContent');
     if (event.target == modal || event.target == closeButton) {
       modal.style.display = 'none';
-      modalCard.innerHTML = defaultModalContent;
+      modalContent.innerHTML = defaultModalContent;
     }
   });
 };
 
 // default loading modal
-const defaultModalContent = `<div class="left-arrow">&lsaquo;</div>
-<div class="right-arrow">&rsaquo;</div>
-<div class="modal__close">&times;</div>
-<div class="mock mock__photo"></div>
+const defaultModalContent = `<div class="mock mock__photo"></div>
 <div class="mock mock__name"></div>
 <div class="mock mock__email"></div>
 <div class="mock mock__city"></div>
 <hr class="modal__line">
 <div class="mock mock__cell"></div>
 <div class="mock mock__location"></div>
-<div class="mock mock__bday"></div>`;
+<div class="mock mock__bday">`;

@@ -13,16 +13,23 @@
   //   display: grid;
   place-content: center;
 
-  & > * {
-    animation: fade 1.5s;
-  }
-
   &__close {
     font-size: 1.3rem;
     align-self: flex-end;
     cursor: pointer;
     padding: 1rem;
     line-height: 1;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    & > * {
+      animation: fade 1.5s;
+    }
   }
 
   &__card {
@@ -101,4 +108,9 @@
 
 .right-arrow {
   right: -70px;
+}
+
+.disabled {
+  color: rgb(109, 53, 53);
+  cursor: default;
 }
