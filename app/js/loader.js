@@ -1,9 +1,11 @@
 const loader = (index, employeeObjectList) => {
   const leftArrow = document.querySelector('.left-arrow');
   const rightArrow = document.querySelector('.right-arrow');
+  const modal = document.querySelector('.modal');
 
   const leftMove = () => {
-    if (position !== 0) {
+    let modalDisplayed = modal.style.display === 'grid';
+    if (position !== 0 && modalDisplayed) {
       position--;
       let newCardPosition = arrayOfCurrentIds[position];
       const cardContent = createModalCard(newCardPosition, employeeObjectList);
@@ -13,7 +15,8 @@ const loader = (index, employeeObjectList) => {
   };
 
   const rightMove = () => {
-    if (position !== arrayOfCurrentIds.length - 1) {
+    let modalDisplayed = modal.style.display === 'grid';
+    if (position !== arrayOfCurrentIds.length - 1 && modalDisplayed) {
       position++;
       let newCardPosition = arrayOfCurrentIds[position];
       const cardContent = createModalCard(newCardPosition, employeeObjectList);
@@ -56,4 +59,14 @@ const loader = (index, employeeObjectList) => {
 
   leftArrow.addEventListener('click', leftMove);
   rightArrow.addEventListener('click', rightMove);
+
+  const arrowKeyHandler = (e) => {
+    let modalDisplayed = modal.style.display === 'grid';
+    if (modalDisplayed) {
+      if (e.keyCode === 37) leftMove();
+      if (e.keyCode === 39) rightMove();
+    }
+  };
+
+  document.addEventListener('keydown', arrowKeyHandler);
 };
