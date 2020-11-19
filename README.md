@@ -41,7 +41,7 @@ To view the app you need to run `Gulp` to produce the distribution files. Downlo
 
 This app was tested on Chrome 86, Safari 14.0.1 and Firefox 84. All requirements, including extra credit, have been implemented.
 
-The site was run on a local server in a Chrome browser during development. Occasionally the fetch request (XMLHttpRequest) would throw up a cross site browser issue. Reloading the page seems to move past this but I am unsure how to prevent it from happening.
+The site was run on a local server in a Chrome browser during development. Occasionally the fetch request (XMLHttpRequest) would throw up a cross site browser issue. Reloading the page seems to move past this but I am unsure how to prevent it from happening. An error handling message was added to the fetch request telling the user that it couldn't be loaded and to try refreshing the page.
 
 An experiment was run to prevent the 'flashing' effect when loading the modal. A default initial background is added but due to quick loading is unlikely to be seen. If loading is slow due to the server we're collecting the data from, it at least keeps some closer visual similarity but still 'flashes'. A fade in animation was added.
 
