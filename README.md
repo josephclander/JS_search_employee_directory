@@ -1,8 +1,12 @@
 # Employee Directory App
 
+Here I use an API to simulate a searchable employee directory with vanilla JavaScript and the build tool `Gulp`.
+
+## The Idea 💭
+
 Awesome Startup is a distributed company with employees working all over the world. They need a smart way to for employees to share contact information with each other. In this project, you’ll use the Random User Generator API (https://randomuser.me/) to grab information for 12 random “employees,” and use that data to build a prototype for an Awesome Startup employee directory. You’ll request a JSON object from the API and parse the data so that 12 employees are listed in a grid with their thumbnail image, full name, email, and location. Clicking the employee’s image or name will open a modal window with more detailed information, such as the employee’s birthday and address.
 
-## Instructions
+## Client Requirements
 
 1 - Get and display 12 random users from The Random User Generator API
 
