@@ -4,7 +4,7 @@ Here I use an API to simulate a searchable employee directory with vanilla JavaS
 
 ## Screenshots
 
-<img width="250" alt="screenshot_1" src="https://user-images.githubusercontent.com/19231569/213936382-5c2b3430-0fac-4a4b-a031-8b2a199f8682.png"><img width="250" alt="screenshot_2" src="https://user-images.githubusercontent.com/19231569/213936395-8029235a-14e0-4ec6-8312-b1cc5fcaa637.png"><img width="250" alt="screenshot_3" src="https://user-images.githubusercontent.com/19231569/213936401-c5df08f8-6c5d-4aa9-a539-89831903b6f4.png">
+<img width="450" alt="screenshot_1" src="https://user-images.githubusercontent.com/19231569/213936382-5c2b3430-0fac-4a4b-a031-8b2a199f8682.png"><img width="450" alt="screenshot_2" src="https://user-images.githubusercontent.com/19231569/213936395-8029235a-14e0-4ec6-8312-b1cc5fcaa637.png"><img width="450" alt="screenshot_3" src="https://user-images.githubusercontent.com/19231569/213936401-c5df08f8-6c5d-4aa9-a539-89831903b6f4.png">
 
 
 
